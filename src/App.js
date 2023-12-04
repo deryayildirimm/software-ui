@@ -18,20 +18,14 @@ import Template3 from "./routingSample/Template3";
 
 const { Header, Content, Footer } = Layout;
 
-const { Search } = Input;
-
 const menuItems = [
   {
     key: "home",
-    label: <Link to="/">Home</Link>,
+    label: <Link to="/home">Home</Link>,
   },
   {
     key: "about",
     label: <Link to="/about">About</Link>,
-  },
-  {
-    key: "promo",
-    label: <Link to="/promotion">Promotion</Link>,
   },
   {
     key: "table",
@@ -54,9 +48,9 @@ const menuItems = [
 function App() {
   const routeDefinition = createRoutesFromChildren(
     <Route element={<RootLayout />}>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<Promotion />} />
       <Route path="/about" element={<AboutPage />} />
-      <Route path="/promotion" element={<Promotion />} />
+      <Route path="/home" element={<HomePage />} />
       <Route path="/tablee" element={<CategoryTable />} />
       <Route path="temp1" element={<Template1 />} />
       <Route path="temp2" element={<Template2 />} />
@@ -72,9 +66,13 @@ function App() {
 const RootLayout = () => {
   return (
     <>
-      <Layout className="layout">
-        <Header>
-          <Menu theme="dark" mode="horizontal" items={menuItems}/>
+      <Layout className="layout" >
+        <Header   style={{
+          display:'flex',
+          alignItems: 'center',
+          textAlign: 'center'
+        }}>
+          <Menu theme="light" mode="horizontal" items={menuItems}/>
         </Header>
         <Content
           style={{
@@ -97,7 +95,7 @@ const RootLayout = () => {
             textAlign: "center",
           }}
         >
-          Ant Design ©2023 Created by Bilge Adam
+          Ant Design ©2023 Created by Bastards
         </Footer>
       </Layout>
     </>
