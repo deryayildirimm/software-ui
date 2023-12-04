@@ -1,0 +1,146 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Sayfanın tamamını kapla */
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 2px solid black;
+}
+
+.header-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    flex: 1; /* Header center'ı genişliği tam kaplasın */
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+    margin: 0 10px; /* Sol ve sağ kenar boşlukları ekledik */
+}
+
+.textBut, .primaryBut {
+    color: aliceblue;
+    background-color: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.primaryBut {
+    background-color: green;
+    margin-left: 10px;
+}
+
+.login-link {
+    text-decoration: none;
+    color: white;
+    padding: 8px 12px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.main-container {
+    font-family: 'Your Font Family', sans-serif;
+    position: relative;
+    margin-top: 70px;
+}
+
+.main-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.main-top, .main-bottom {
+    padding: 20px;
+}
+
+.main-top {
+}
+
+.main-bottom {
+    
+    bottom: 0;
+    left: 0;
+    width: 100%;    
+    padding: 10px;
+}
+img {
+    max-width: 30%; /* Resmin maksimum genişliği */
+    max-height: 20%; /* Resmin maksimum yüksekliği */
+    
+    display: block; /* Resmi bir blok eleman olarak görüntüleme */
+    margin: auto; /* Resmi yatayda ve dikeyde ortala */
+}
+.mainText {
+    font-family: 'Specimen', sans-serif;
+    font-size: 60px;
+    font-weight: 1000;
+    color: white;
+}
+
+.bottomText {
+    font-family: 'Specimen', sans-serif;
+    font-size: 14px;
+    font-weight: 1000;
+    color: white;
+}
+
+.main-content h1 {
+}
+
+.main-content p {
+}
+
+.cta-button {
+    cursor: pointer;
+    background-color: wheat;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.cta-button:hover {
+    background-color: #535353;
+}
+
+/* Mobil Cihazlar İçin Stiller */
+@media only screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-center, .header-right, .header-left {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .main-container {
+        margin-top: 10px; /* Mobil cihazlarda daha düşük bir üst boşluk */
+    }
+
+    .main-content {
+        margin-top: 10px; /* Mobil cihazlarda daha düşük bir üst boşluk */
+    }
+}

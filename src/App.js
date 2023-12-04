@@ -1,25 +1,107 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {
+  Link,
+  Route,
+  Outlet,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromChildren,
+} from "react-router-dom";
+import HomePage from "./routingSample/HomePage";
+import AboutPage from "./routingSample/AboutPage";
+import { Menu, Layout, Input } from "antd";
+import Promotion from "./routingSample/Promotion";
+import CategoryTable from "./antdesignSample/CategoryTable";
+import Template1 from "./routingSample/Template1";
+import Template2 from "./routingSample/Template2";
+import Template3 from "./routingSample/Template3";
+
+const { Header, Content, Footer } = Layout;
+
+const { Search } = Input;
+
+const menuItems = [
+  {
+    key: "home",
+    label: <Link to="/">Home</Link>,
+  },
+  {
+    key: "about",
+    label: <Link to="/about">About</Link>,
+  },
+  {
+    key: "promo",
+    label: <Link to="/promotion">Promotion</Link>,
+  },
+  {
+    key: "table",
+    label: <Link to="/tablee">CategoryTable</Link>,
+  },
+  {
+    key: "temp1",
+    label: <Link to="/temp1">Template1</Link>,
+  },
+  {
+    key: "temp2",
+    label: <Link to="/temp2">Template2</Link>,
+  },
+  {
+    key: "temp3",
+    label: <Link to="/temp3">Template3</Link>,
+  },
+];
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const routeDefinition = createRoutesFromChildren(
+    <Route element={<RootLayout />}>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/promotion" element={<Promotion />} />
+      <Route path="/tablee" element={<CategoryTable />} />
+      <Route path="temp1" element={<Template1 />} />
+      <Route path="temp2" element={<Template2 />} />
+      <Route path="temp3" element={<Template3 />} />
+    </Route>
   );
+
+  const router = createBrowserRouter(routeDefinition);
+
+  return <RouterProvider router={router} />;
 }
+
+const RootLayout = () => {
+  return (
+    <>
+      <Layout className="layout">
+        <Header>
+          <Menu theme="dark" mode="horizontal" items={menuItems}/>
+        </Header>
+        <Content
+          style={{
+            padding: "0 50px",
+            textAlign:"center",
+          }}
+        >
+          <div
+            className="site-layout-content"
+            style={{
+              backgroundColor: "white",
+              marginTop: "4rem",
+            }}
+          >
+            <Outlet />
+          </div>
+        </Content>
+        <Footer
+          style={{
+            textAlign: "center",
+          }}
+        >
+          Ant Design ©2023 Created by Bilge Adam
+        </Footer>
+      </Layout>
+    </>
+  );
+};
 
 export default App;
