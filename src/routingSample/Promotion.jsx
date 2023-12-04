@@ -1,48 +1,75 @@
-import React from 'react';
-import './Promotion.css'; // Stil dosyanızın yolunu belirtin
-import { Button, Flex, Image } from 'antd';
-import { RightOutlined } from '@ant-design/icons';
-import { useNavigate, NavLink } from "react-router-dom";
+import React from "react";
+import "./Promotion.css"; // Stil dosyanızın yolunu belirtin
+import { Button, Menu } from "antd";
+import { RightOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
+
+const menuItems = [
+  {
+    key: "home",
+    label: <Link to="/home">Home</Link>,
+  },
+  {
+    key: "about",
+    label: <Link to="/about">About</Link>,
+  },
+  {
+    key: "table",
+    label: <Link to="/tablee">CategoryTable</Link>,
+  },
+];
 
 export const Promotion = () => {
+  return (
+    <>
+      <header>
+        <div className="header-wrapper">
+          <div className="logo">
+            <a href="">Bootstrap</a>
+          </div>
 
-    return (
-        <div className='main'>
-            <header className="header">
-                <div className='header-left'>
-                    <Button type="text" className='textBut'>FABRE</Button>
-                </div>
-                <div className='header-center'>
-                    <Button type="text" className='textBut'>Çözümler</Button>
-                    <Button type="text" className='textBut'>Hızlı Öğrenme</Button>
-                    <Button type="text" className='textBut'>Hakkımızda</Button>
+          <ul>
+            <li class="active">
+              <Link to="/home">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/tablee">CategoryTable</Link>
+            </li>
+          </ul>
 
-                </div>
-                <div className='header-right'>
-                    <NavLink to="/login"><Button type="text" className='textBut'>Giriş</Button></NavLink>
-                    
-                    <NavLink to="/signup"><Button type="primary" className='primaryBut'>Hemen Başla</Button></NavLink>                    
-                </div>
-            </header>
-            <main className="main-content">
-                <div className='main-top'>
-                    <Button type="primary" icon={<RightOutlined style={{ position: 'right' }} />} style={{ backgroundColor: 'gray' }}>NEDEN FREELANCER</Button>
-                    <h1 className='mainText'>Yetenekli danışmanlarla büyüyün ve büyütün.</h1>
-                </div>
-                <div className='main-bottom'>
-                    <p className='bottomText'>Birçok freelancer çalışan kadromuzla iş sürecinizi profesyonel bir şekilde yönetmek için</p>
-                    <NavLink to="/signup"><Button type="primary" className='primaryBut'>Hemen Başla</Button></NavLink> 
-                    
-
-                </div>
-            </main>
-            <img
-                className='img'
-                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            />
+          <div className="btn-wrapper">
+            <Button type="link">Link</Button>
+            <Button type="primary">Primary</Button>
+          </div>
         </div>
+      </header>
 
-    );
+      <div className="hero-section">
+        <div className="container">
+          <h1>Yetenekli Danışmanlarla Büyüyün ve Büyütün!!</h1>
+          <p>
+            Bootstrap utility classes are used to create this jumbotron since
+          </p>
+          <Button type="primary">Primary</Button>
+        </div>
+      </div>
+
+      <div className="main">
+        <h3>szmlfdgnslkabgkjsbhfsb </h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, totam.
+          Consequuntur ullam consequatur perferendis repudiandae rem eveniet
+          quibusdam iure laborum.
+        </p>
+      </div>
+      <footer>
+        <div className="footer-wrapper">Copyright © Your Website 2023</div>
+      </footer>
+    </>
+  );
 };
 
 export default Promotion;

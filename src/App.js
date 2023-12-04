@@ -47,7 +47,7 @@ const menuItems = [
 
 function App() {
   const routeDefinition = createRoutesFromChildren(
-    <Route element={<RootLayout />}>
+    <Route >
       <Route path="/" element={<Promotion />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/home" element={<HomePage />} />
